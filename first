@@ -1,0 +1,50 @@
+import random
+
+user_wins= 0
+computer_wins= 0
+tied= 0
+rounds= 0
+
+choices = ["rock", "paper", "scissors"]
+
+while True:
+    user_input = input("Type Rock, Paper, or Scissors or quit to quit: ").lower()
+    if user_input == "quit":
+        break
+
+    if user_input not in choices:
+        continue
+
+    random_num = random.randint(0,2)
+    # rock= 0 paper= 1 scissors= 2
+    computers_pick = choices[random_num]
+    print("Computer picked " + computers_pick + ".")
+
+    if user_input == "rock" and computers_pick == ("scissors"):
+        print("YOU WON!!!")
+        user_wins+= 1
+    elif user_input == "paper" and computers_pick == ("rock"):
+            print("YOU WON!!!")
+            user_wins += 1
+    elif user_input == "scissors" and computers_pick == ("paper"):
+                print("YOU WON!!!")
+                user_wins += 1
+    elif user_input == "rock" and computers_pick == ("rock"):
+                print("YOU TIED WITH COMPUTER!!!")
+                tied+= 1
+    elif user_input == "paper" and computers_pick == ("paper"):
+                print("YOU TIED WITH COMPUTER!!!")
+                tied+= 1
+    elif user_input == "scissors" and computers_pick == ("scissors"):
+                print("YOU TIED WITH COMPUTER!!!")
+                tied+= 1
+    else:
+        print("YOU LOST :(")
+        computer_wins+=1
+    rounds += 1
+rounds_won = ((user_wins / rounds)*100)
+print("SUMMARY:")
+print("You won "+ str(user_wins) +" times!!!")
+print("The computer won " + str(computer_wins) + " times!!!")
+print("You tied with the computer " + str(tied) +" times!!!")
+print("You won " + str(rounds_won) +"% of the time")
